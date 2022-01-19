@@ -26,7 +26,7 @@ let checkVictory = () => {
   }
 };
 
-let putin = () => {
+const putin = () => {
   document.getElementById("dead").innerHTML = 0;
   document.getElementById("lost").innerHTML = 0;
   deadCounter = 0;
