@@ -12,6 +12,7 @@ dropdowns.map(dropdown => {
   dropdownItems.map((item) => {
       item.querySelector("a").onclick = () => {
       dropdownValue.textContent = item.querySelector("a").textContent;
+      dropdownList.classList.remove("dropdown__list_active");
       return false
     };
   });
