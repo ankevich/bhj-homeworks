@@ -16,16 +16,16 @@ let setCurrentSlideActive = () => {
 
 nextButton.onclick = () => {
   currentSlideNumber++;
-  setCurrentSlideActive();
-  if (currentSlideNumber >= images.length - 1) {
+  if (currentSlideNumber > images.length - 1) {
     currentSlideNumber = 0;
   }
+  setCurrentSlideActive();
 };
 
 prevButton.onclick = () => {
   currentSlideNumber--;
-  setCurrentSlideActive();
-  if (currentSlideNumber <= 0) {
+  if (currentSlideNumber < 0) {
     currentSlideNumber = images.length - 1;
   }
+  setCurrentSlideActive();
 };
