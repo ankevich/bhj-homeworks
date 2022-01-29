@@ -68,12 +68,10 @@ class Autocomplete {
     this.list.innerHTML = html.join("");
   }
 
-  getMatches = (text) => 
-     Array.from(this.input.querySelectorAll("option"))
-      .map((option) => option.innerHTML)
-      .filter((option) => option.includes(text))
-      .map((option) => ({ text: option, value: 1 }));
-  
+  getMatches = (text) =>
+    Array.from(this.input.querySelectorAll("option"))
+      .filter((option) => option.innerHTML.includes(text))
+      .map((option) => ({ text: option.innerHTML, value: option.value }));
 }
 
 new Autocomplete(document.querySelector(".autocomplete"));
