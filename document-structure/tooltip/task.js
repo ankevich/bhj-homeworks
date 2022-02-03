@@ -1,9 +1,15 @@
-let blocksForTooltips = Array.from(
-  document.getElementsByClassName("has-tooltip")
-);
+let blocksForTooltips = Array.from(document.getElementsByClassName("has-tooltip"));
+
+let hideAllTooltips = () => {
+  let tooltips = Array.from(document.getElementsByClassName("tooltip"));
+  tooltips.map((tooltip) => {
+    tooltip.classList.remove("tooltip_active");
+  });
+};
 
 blocksForTooltips.map((block) => {
   block.onclick = () => {
+    hideAllTooltips();
     let position = block.getBoundingClientRect();
     block.insertAdjacentHTML(
       "afterEnd",
@@ -14,3 +20,5 @@ blocksForTooltips.map((block) => {
     return false;
   };
 });
+
+document.addEventListener("scroll", hideAllTooltips)
