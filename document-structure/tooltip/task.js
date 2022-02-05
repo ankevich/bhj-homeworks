@@ -2,9 +2,7 @@ let blocksForTooltips = Array.from(document.getElementsByClassName("has-tooltip"
 
 document.querySelector("header").insertAdjacentHTML(
   "afterEnd",
-  `<div id="tooltip" class="tooltip" style="left: ${10}px; top: ${10 +20}px;">
-        ${""}
-   </div>`
+  `<div id="tooltip" class="tooltip""></div>`
 )
 
 let tooltip = document.querySelector("#tooltip")
