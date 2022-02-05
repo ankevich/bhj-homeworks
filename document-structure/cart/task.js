@@ -31,15 +31,13 @@ decButtons.map((button) => {
 
 let addSameProduct = (clickedProductId, quantity) => {
   let products = Array.from(document.querySelectorAll(".cart__product"))
-  products.map((cartProduct) => {
-    let cartProductDataId = cartProduct.getAttribute("data-id")
 
-    if (clickedProductId == cartProductDataId ) {
-      let count = cartProduct.querySelector(".cart__product-count").textContent
-      let sum = Number(count) + Number(quantity)
-      cartProduct.querySelector(".cart__product-count").textContent = sum
-    }
-  })
+  let existingProduct = products.find(p => p.getAttribute("data-id") == clickedProductId)
+  if (existingProduct != undefined) {
+    let count = existingProduct.querySelector(".cart__product-count").textContent
+    let sum = Number(count) + Number(quantity)
+    existingProduct.querySelector(".cart__product-count").textContent = sum
+  }  
 }
 
 addButtons.map((button) => {
