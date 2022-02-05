@@ -9,11 +9,12 @@ let hideAllTooltips = () => {
 
 blocksForTooltips.map((block) => {
   block.onclick = () => {
+    
     hideAllTooltips();
     let position = block.getBoundingClientRect();
     block.insertAdjacentHTML(
       "afterEnd",
-      `<div class="tooltip tooltip_active" style="left: ${position.left}px; top: ${position.top}px;">
+      `<div class="tooltip tooltip_active" style="left: ${position.left}px; top: ${position.top +20}px;">
             ${block.title}
        </div>`
     );
