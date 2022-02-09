@@ -8,7 +8,7 @@ let values = document.getElementsByClassName("product__quantity-value");
 let addButtons = Array.from(document.getElementsByClassName("product__add"));
 let cart = document.querySelector(".cart__products");
 
-incButtons.map((button) => {
+incButtons.forEach((button) => {
   button.onclick = () => {
     let value = button
       .closest(".product__quantity-controls")
@@ -18,7 +18,7 @@ incButtons.map((button) => {
   };
 });
 
-decButtons.map((button) => {
+decButtons.forEach((button) => {
   button.onclick = () => {
     let value = button
       .closest(".product__quantity-controls")
@@ -33,14 +33,14 @@ let addSameProduct = (clickedProductId, quantity) => {
   let products = Array.from(document.querySelectorAll(".cart__product"))
 
   let existingProduct = products.find(p => p.getAttribute("data-id") == clickedProductId)
-  if (existingProduct != undefined) {
+  if (existingProduct) {
     let count = existingProduct.querySelector(".cart__product-count").textContent
     let sum = Number(count) + Number(quantity)
     existingProduct.querySelector(".cart__product-count").textContent = sum
   }  
 }
 
-addButtons.map((button) => {
+addButtons.forEach((button) => {
   button.onclick = () => {
       let product = button.closest(".product")
       
