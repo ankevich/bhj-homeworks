@@ -17,7 +17,7 @@ let showTooltip = (text, position) => {
   }
 }
 
-blocksForTooltips.map(a => {
+blocksForTooltips.forEach(a => {
   a.onclick = () => {
     let position = a.getBoundingClientRect()
     showTooltip(a.title, position)
